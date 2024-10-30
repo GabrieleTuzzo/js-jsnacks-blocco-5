@@ -11,10 +11,25 @@ const zucchine = [
     { type: 'Calabrese', weight: 14, length: 4 },
 ]
 
+const zuchiniLengthsContainer = {
+    longZuchinis: [],
+    shortZuchinis: [],
+}
+
 // A partire dall'array fornito, crea due array. Uno con le zucchine più lunghe di almeno 15cm. L'altro con le restanti.
 const zuchiniLength = 15
 
-const longZuchinis = zucchine.filter((el) => el.length > zuchiniLength)
-const shortZuchinis = zucchine.filter((el) => el.length < zuchiniLength)
+zucchine.reduce((carry, currentZuchini) => {
+    const { longZuchinis, shortZuchinis } = carry
 
+    if (currentZuchini.length > zuchiniLength) {
+        longZuchinis.push(currentZuchini)
+    } else {
+        shortZuchinis.push(currentZuchini)
+    }
+
+    return carry
+}, zuchiniLengthsContainer)
+
+const { longZuchinis, shortZuchinis } = zuchiniLengthsContainer
 console.log(longZuchinis, shortZuchinis)
