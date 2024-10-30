@@ -16,4 +16,5 @@ const zuchiniLength = 15
 
 const longZuchinis = zucchine.filter((el) => el.length > zuchiniLength)
 const shortZuchinis = zucchine.filter((el) => el.length < zuchiniLength)
+
 console.log(longZuchinis, shortZuchinis)
